@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Imágenes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mansalva&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="text-center mb-4 text-dark">🎨 Generador de Imágenes</h1>
+            </div>
+        </div>
+        
+        <div class="row g-3 mb-4">
+            <div class="col-md-6 col-lg-4">
+                <label for="authorText" class="form-label fw-bold">Autor/Handle:</label>
+                <input type="text" class="form-control" id="authorText" value="@Escuchemos_al_MaestroJesús" placeholder="@tu_handle">
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="titleText" class="form-label fw-bold">Título:</label>
+                <input type="text" class="form-control" id="titleText" placeholder="Título de la imagen">
+            </div>
+            
+            <div class="col-12 col-lg-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="contentText" class="form-label fw-bold mb-0">Contenido:</label>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="clearContent()">
+                        🗑️ Limpiar
+                    </button>
+                </div>
+                <textarea class="form-control mt-2" id="contentText" rows="4" placeholder="Escribe el contenido aquí..."></textarea>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="imageFile" class="form-label fw-bold">Imagen de Fondo:</label>
+                <input type="file" class="form-control" id="imageFile" accept="image/*">
+                <small class="form-text text-muted">Sube una imagen o usa la predeterminada</small>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="backgroundEffect" class="form-label fw-bold">Efecto de Fondo:</label>
+                <select class="form-select" id="backgroundEffect">
+                    <option value="opacity" selected>Opacidad</option>
+                    <option value="blur">Difuminado</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="overlayOpacity" class="form-label fw-bold">Opacidad del Overlay:</label>
+                <select class="form-select" id="overlayOpacity">
+                    <option value="0.3">30% (Más clara)</option>
+                    <option value="0.4" selected>40% (Recomendado)</option>
+                    <option value="0.5">50% (Más oscura)</option>
+                    <option value="0.6">60% (Muy oscura)</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="blurIntensity" class="form-label fw-bold">Intensidad de Difuminado:</label>
+                <select class="form-select" id="blurIntensity">
+                    <option value="2">Suave (2px)</option>
+                    <option value="4" selected>Medio (4px)</option>
+                    <option value="6">Fuerte (6px)</option>
+                    <option value="8">Muy Fuerte (8px)</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="fontSize" class="form-label fw-bold">Tamaño de Fuente:</label>
+                <select class="form-select" id="fontSize">
+                    <option value="10">Muy Pequeño (10px)</option>
+                    <option value="16">Pequeño (16px)</option>
+                    <option value="18" selected>Mediano (18px)</option>
+                    <option value="20">Grande (20px)</option>
+                    <option value="22">Extra Grande (22px)</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="authorFont" class="form-label fw-bold">Fuente del Autor:</label>
+                <select class="form-select" id="authorFont">
+                    <option value="Open Sans" selected>Open Sans</option>
+                    <option value="Mansalva">Mansalva</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="authorSize" class="form-label fw-bold">Tamaño del Autor:</label>
+                <select class="form-select" id="authorSize">
+                    <option value="10">Muy Pequeño (10px)</option>
+                    <option value="12">Pequeño (12px)</option>
+                    <option value="14" selected>Mediano (14px)</option>
+                    <option value="16">Grande (16px)</option>
+                    <option value="18">Extra Grande (18px)</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="titleFont" class="form-label fw-bold">Fuente del Título:</label>
+                <select class="form-select" id="titleFont">
+                    <option value="Open Sans" selected>Open Sans</option>
+                    <option value="Mansalva">Mansalva</option>
+                </select>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <label for="contentFont" class="form-label fw-bold">Fuente del Contenido:</label>
+                <select class="form-select" id="contentFont">
+                    <option value="Open Sans" selected>Open Sans</option>
+                    <option value="Mansalva">Mansalva</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-6">
+                <div class="d-flex flex-column flex-lg-row gap-4 align-items-start justify-content-center">
+                    <div class="inspirational-template mx-auto" id="imagePreview">
+                        <div class="background-layer" id="backgroundLayer"></div>
+                        <div class="overlay" id="overlay">
+                            <div class="author" id="authorDisplay">@Escuchemos_al_MaestroJesús</div>
+                            <div class="title" id="titleDisplay">Escuchen hijos míos:</div>
+                            <div class="content" id="contentDisplay">
+                                El alma guarda experiencias de cada vida para aprender de ellas. Pregúntate: ¿qué enseñanza trae tu dolor, tu sensación de abandono o desprecio?<br><br>
+
+                                Tú eres energía de amor. Esa es tu esencia. Desde ahí puedes sanar la relación contigo mismo y mirar tu vida con una visión más elevada.<br><br>
+
+                                No te quedes atado a resentimientos. Imagina que sueltas esas cuerdas con tus propias manos. Tienes el poder de liberarte.<br><br>
+
+                                Recuerda: quienes te lastimaron actuaron con la conciencia que tenían. Al comprenderlo, transformas el dolor en paz.<br><br>
+
+                                En la cruz dije: "Padre, perdónalos, porque no saben lo que hacen". Ese fue mi camino de libertad espiritual. Tú también puedes elegir el perdón y vibrar en el Amor de Dios.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                        <button class="btn btn-primary btn-lg" onclick="downloadAsImage()">
+                            📱 Descargar como Imagen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SVG Filter para blur que funciona mejor con html2canvas -->
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <filter id="blur-filter">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f8f9fa;
+    padding: 20px 0;
+}
+
+.container-fluid {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 0 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.inspirational-template {
+    position: relative;
+    width: 405px;
+    height: 720px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    filter: blur(0px);
+}
+
+.background-layer.blurred {
+    filter: blur(4px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    z-index: 2;
+}
+
+.title {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    text-align: justify;
+    hyphens: auto;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 30px;
+}
+
+.author {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #654a91 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        margin: 0 10px;
+        padding: 20px;
+    }
+    
+    .inspirational-template {
+        width: 100%;
+        max-width: 320px;
+        height: 568px;
+    }
+}
