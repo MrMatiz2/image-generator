@@ -46,37 +46,26 @@
             </div>
             
             <div class="col-md-6 col-lg-4">
-                <label for="backgroundEffect" class="form-label fw-bold">Efecto de Fondo:</label>
-                <select class="form-select" id="backgroundEffect">
-                    <option value="opacity" selected>Opacidad</option>
-                    <option value="blur">Difuminado</option>
-                </select>
-            </div>
-            
-            <div class="col-md-6 col-lg-4">
-                <label for="overlayOpacity" class="form-label fw-bold">Opacidad del Overlay:</label>
+                <label for="overlayOpacity" class="form-label fw-bold">Overlay de Fondo:</label>
                 <select class="form-select" id="overlayOpacity">
-                    <option value="0.3">30% (Más clara)</option>
-                    <option value="0.4" selected>40% (Recomendado)</option>
-                    <option value="0.5">50% (Más oscura)</option>
-                    <option value="0.6">60% (Muy oscura)</option>
-                </select>
-            </div>
-            
-            <div class="col-md-6 col-lg-4">
-                <label for="blurIntensity" class="form-label fw-bold">Intensidad de Difuminado:</label>
-                <select class="form-select" id="blurIntensity">
-                    <option value="2">Suave (2px)</option>
-                    <option value="4" selected>Medio (4px)</option>
-                    <option value="6">Fuerte (6px)</option>
-                    <option value="8">Muy Fuerte (8px)</option>
+                    <option value="white-1.0">Blanco 100%</option>
+                    <option value="white-0.8">Blanco 80%</option>
+                    <option value="white-0.6">Blanco 60%</option>
+                    <option value="white-0.4">Blanco 40%</option>
+                    <option value="white-0.2">Blanco 20%</option>
+                    <option value="0.0">Transparente</option>
+                    <option value="0.2">Negro 20%</option>
+                    <option value="0.4" selected>Negro 40% (Recomendado)</option>
+                    <option value="0.6">Negro 60%</option>
+                    <option value="0.8">Negro 80%</option>
+                    <option value="1.0">Negro 100%</option>
                 </select>
             </div>
             
             <div class="col-md-6 col-lg-4">
                 <label for="fontSize" class="form-label fw-bold">Tamaño de Fuente:</label>
                 <select class="form-select" id="fontSize">
-                    <option value="10">Muy Pequeño (10px)</option>
+                    <option value="12">Muy Pequeño (12px)</option>
                     <option value="16">Pequeño (16px)</option>
                     <option value="18" selected>Mediano (18px)</option>
                     <option value="20">Grande (20px)</option>
@@ -104,6 +93,20 @@
             </div>
             
             <div class="col-md-6 col-lg-4">
+                <label class="form-label fw-bold">Texto en Negrita:</label>
+                <div class="d-flex gap-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="authorBold" checked>
+                        <label class="form-check-label" for="authorBold">Autor</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="titleBold" checked>
+                        <label class="form-check-label" for="titleBold">Título</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
                 <label for="titleFont" class="form-label fw-bold">Fuente del Título:</label>
                 <select class="form-select" id="titleFont">
                     <option value="Open Sans" selected>Open Sans</option>
@@ -127,7 +130,7 @@
                         <div class="background-layer" id="backgroundLayer"></div>
                         <div class="overlay" id="overlay">
                             <div class="author" id="authorDisplay">@Escuchemos_al_MaestroJesús</div>
-                            <div class="title" id="titleDisplay">Escuchen hijos míos:</div>
+                            <div class="title" id="titleDisplay"></div>
                             <div class="content" id="contentDisplay">
                                 El alma guarda experiencias de cada vida para aprender de ellas. Pregúntate: ¿qué enseñanza trae tu dolor, tu sensación de abandono o desprecio?<br><br>
 
@@ -151,15 +154,6 @@
             </div>
         </div>
     </div>
-
-    <!-- SVG Filter para blur que funciona mejor con html2canvas -->
-    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
-        <defs>
-            <filter id="blur-filter">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
-            </filter>
-        </defs>
-    </svg>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>

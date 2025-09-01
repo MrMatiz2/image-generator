@@ -42,9 +42,6 @@ body {
     filter: blur(0px);
 }
 
-.background-layer.blurred {
-    filter: blur(4px);
-}
 
 .overlay {
     position: absolute;
@@ -77,15 +74,17 @@ body {
     font-size: 18px;
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    text-align: justify;
-    hyphens: auto;
+    text-align: left;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    hyphens: none;
     font-family: 'Open Sans', sans-serif;
     margin: 0 30px;
 }
 
 .author {
     position: absolute;
-    top: 60px;
+    top: 110px;
     left: 0;
     right: 0;
     color: white;
